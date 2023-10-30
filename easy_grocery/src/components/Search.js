@@ -1,13 +1,42 @@
-export default function Search() {
+import { useState } from 'react';
+
+export default function Search({ items, setItems }) {
+  const [inputValue, setInputValue] = useState('');
+
+  function handleAddItem() {
+    if (inputValue.trim() === '') return;
+
+    const newItem = {
+      id: Number(items.length + 1),
+      name: inputValue,
+      checked: false,
+    };
+
+    setItems((prevItems) => [...prevItems, newItem]);
+    setInputValue('');
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    handleAddItem();
+  }
+
   return (
     <div className='search_container'>
-      <form className='search_form' action=''>
+      <form className='search_form' onSubmit={handleSubmit}>
         <label htmlFor='search' className='search_icon'>
           <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='#555555' viewBox='0 0 20 24'>
             <path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z' />
           </svg>
         </label>
-        <input id='search' className='search_input' type='text' placeholder='I need...' />
+        <input
+          id='search'
+          className='search_input'
+          type='text'
+          placeholder='I need...'
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
         <button className='search_button'>+</button>
       </form>
     </div>

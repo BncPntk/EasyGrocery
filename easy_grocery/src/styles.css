@@ -10,15 +10,17 @@ body {
 .container {
   /* background-color: #fff; */
   margin: 64px auto;
-  display: flex;
   position: relative;
   width: 1465px;
-  height: calc(100vh - 128px);
+  /* height: calc(100vh - 128px); */
+  height: auto;
   justify-content: center;
 }
+
 .items_list {
+  /* background: #000; */
   display: grid;
-  margin-top: 50px;
+  padding-top: 50px;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 15px;
@@ -33,6 +35,7 @@ body {
   border-radius: 10px;
   transition: transform 0.2s;
   text-align: center;
+  overflow-wrap: break-word;
 }
 .item:hover {
   cursor: pointer;
@@ -44,9 +47,34 @@ body {
   font-size: 96px;
   margin-bottom: -15px;
 }
-.item p {
+
+.item_text_normal {
   color: #f0eccf;
-  font-size: 32px;
+  font-size: 26px;
+}
+
+.item_text_small {
+  color: #f0eccf;
+  font-size: 16px;
+}
+
+.bought_items_list {
+  /* background: red; */
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+.bought_item {
+  background: rgb(95, 90, 79);
+}
+.history_text {
+  margin: 100px 0 15px 0;
+  font-size: 28px;
+  color: #f0eccf;
+  font-weight: 900;
 }
 
 .sort_button {
@@ -77,7 +105,7 @@ body {
 .search_container {
   position: fixed;
   left: 50%;
-  bottom: 50px;
+  bottom: 20px;
   transform: translateX(-50%);
 }
 
