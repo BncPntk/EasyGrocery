@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #a3bb98;
+}
+
+.container {
+  /* background-color: #fff; */
+  margin: 64px auto;
+  display: flex;
+  position: relative;
+  width: 1465px;
+  height: calc(100vh - 128px);
+  justify-content: center;
+}
+.items_list {
+  display: grid;
+  margin-top: 50px;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+.item {
+  background: rgb(251, 194, 82);
+  background: linear-gradient(140deg, rgba(251, 194, 82, 1) 0%, rgba(250, 175, 6, 1) 50%);
+  width: 170px;
+  height: 160px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+  text-align: center;
+}
+.item:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+.item h3 {
+  color: #f0eccf;
+  font-size: 96px;
+  margin-bottom: -15px;
+}
+.item p {
+  color: #f0eccf;
+  font-size: 32px;
+}
+
+.sort_button {
+  background: linear-gradient(-180deg, rgba(251, 194, 82, 1) 0%, rgba(250, 175, 6, 1) 100%);
+  width: 117px;
+  height: 30px;
+  font-size: 20px;
+  color: #f0eccf;
+  border-radius: 10px;
+  padding-right: 8px;
+  padding: 2px 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform 0.2s;
+}
+
+.sort_button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.sort_button span {
+  margin-right: 5px;
+  padding-left: 8px;
+}
+
+.search_container {
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+}
+
+.search_form {
+  display: flex;
+  align-items: center;
+}
+
+.search_icon {
+  /* background: #fff; */
+  height: 40px;
+  border-radius: 10px 0 0 10px;
+  position: absolute;
+  margin: 8px 0 0 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+.search_input {
+  font-size: 32px;
+  margin: 0 9px;
+  padding: 5px 0 5px 40px;
+  border: none;
+  border-radius: 10px;
+  color: #555555;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.search_button {
+  font-size: 64px;
+  color: #d9d9d9;
+  background: linear-gradient(-180deg, rgba(251, 194, 82, 1) 0%, rgba(250, 175, 6, 1) 100%);
+  border: none;
+  width: 58px;
+  height: 58px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: transform 0.2s;
+}
+.search_button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
