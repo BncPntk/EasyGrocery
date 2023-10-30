@@ -68,7 +68,7 @@ body {
 }
 
 .bought_item {
-  background: rgb(95, 90, 79);
+  background: #5f5a4f;
 }
 .history_text {
   margin: 100px 0 15px 0;
@@ -78,28 +78,27 @@ body {
 }
 
 .sort_button {
-  background: linear-gradient(-180deg, rgba(251, 194, 82, 1) 0%, rgba(250, 175, 6, 1) 100%);
-  width: 117px;
-  height: 30px;
-  font-size: 20px;
-  color: #f0eccf;
-  border-radius: 10px;
-  padding-right: 8px;
-  padding: 2px 0;
   position: absolute;
   right: 0;
-  top: 0;
-  transition: transform 0.2s;
+  top: -20px;
 }
 
-.sort_button:hover {
+.sort_button select {
+  color: #ffffff;
+  background: linear-gradient(-180deg, rgba(251, 194, 82, 1) 0%, rgba(250, 175, 6, 1) 100%);
+  padding: 10px 15px;
+  font-size: 22px;
+  font-weight: normal;
+  border-radius: 15px;
+}
+.sort_button select:hover {
   cursor: pointer;
-  transform: scale(1.05);
 }
 
-.sort_button span {
-  margin-right: 5px;
-  padding-left: 8px;
+.sort_button option {
+  color: #000000;
+  padding: 5px 15px;
+  font-size: 18px;
 }
 
 .search_container {

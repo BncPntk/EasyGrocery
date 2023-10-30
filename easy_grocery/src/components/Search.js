@@ -4,15 +4,30 @@ export default function Search({ items, setItems }) {
   const [inputValue, setInputValue] = useState('');
 
   function handleAddItem() {
-    if (inputValue.trim() === '') return;
+    const trimmedValue = inputValue.trim();
+    if (trimmedValue === '') return;
 
-    const newItem = {
-      id: Number(items.length + 1),
-      name: inputValue,
-      checked: false,
-    };
+    const existingItem = items.find((item) => item.name === trimmedValue);
 
-    setItems((prevItems) => [...prevItems, newItem]);
+    if (existingItem) {
+      if (existingItem.checked) {
+        const newItem = {
+          ...existingItem,
+          checked: false,
+        };
+
+        setItems((prevItems) => prevItems.map((item) => (item.name === trimmedValue ? newItem : item)));
+      }
+    } else {
+      const newItem = {
+        id: Number(items.length + 1),
+        name: trimmedValue,
+        checked: false,
+      };
+
+      setItems((prevItems) => [...prevItems, newItem]);
+    }
+
     setInputValue('');
   }
 

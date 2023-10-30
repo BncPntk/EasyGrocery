@@ -1,4 +1,6 @@
 export default function Item({ item, items, setItems }) {
+  let formattedName = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+
   function handleBought() {
     setItems((prevItems) => {
       return prevItems.map((prevItem) => {
@@ -9,23 +11,13 @@ export default function Item({ item, items, setItems }) {
       });
     });
   }
-  if (item.checked) {
-    return (
-      <div className='item bought_item' onClick={handleBought}>
-        <h3>{item.name.charAt(0)}</h3>
-        <p className={item.name.length > 10 ? 'item_text_small' : 'item_text_normal'}>
-          {item.name.length > 34 ? item.name.slice(0, 31) + '...' : item.name}
-        </p>
-      </div>
-    );
-  } else {
-    return (
-      <div className='item' onClick={handleBought}>
-        <h3>{item.name.charAt(0)}</h3>
-        <p className={item.name.length > 10 ? 'item_text_small' : 'item_text_normal'}>
-          {item.name.length > 34 ? item.name.slice(0, 31) + '...' : item.name}
-        </p>
-      </div>
-    );
-  }
+
+  return (
+    <div className={`item ${item.checked ? 'bought_item' : ''}`} onClick={handleBought}>
+      <h3>{formattedName.charAt(0)}</h3>
+      <p className={formattedName.length > 10 ? 'item_text_small' : 'item_text_normal'}>
+        {formattedName.length > 34 ? formattedName.slice(0, 31) + '...' : formattedName}
+      </p>
+    </div>
+  );
 }
