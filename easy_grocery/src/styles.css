@@ -1,8 +1,11 @@
 :root {
   --clr-primary: #606c38;
+  --clr-primary-gradient: linear-gradient(120deg, rgba(143, 154, 107, 1) 38%, rgba(96, 108, 56, 1) 100%);
   --clr-secondary: #fefae0;
+  --clr-secondary-gradient: linear-gradient(120deg, rgba(254, 250, 224, 1) 58%, rgba(212, 235, 136, 1) 100%);
   --clr-action: #dda15e;
-  --clr-text: #001524;
+  --clr-action-gradient: linear-gradient(120deg, rgba(221, 161, 94, 1) 58%, rgb(185, 124, 53) 100%);
+  --clr-action-gradient-btn: linear-gradient(180deg, rgba(221, 161, 94, 1) 28%, rgb(185, 124, 53) 100%);
 }
 
 *,
@@ -15,7 +18,8 @@
 
 body {
   font-family: 'Josefin Sans', sans-serif;
-  background-color: var(--clr-primary);
+  background: var(--clr-primary-gradient);
+  height: 100vh;
 }
 
 .container {
@@ -37,7 +41,7 @@ body {
 }
 
 .item {
-  background-color: var(--clr-secondary);
+  background: var(--clr-secondary-gradient);
   width: 170px;
   height: 160px;
   border-radius: 10px;
@@ -49,6 +53,7 @@ body {
   overflow-wrap: break-word;
   padding: 2px;
   line-height: 1;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
 }
 .item:hover {
   cursor: pointer;
@@ -83,7 +88,7 @@ body {
 }
 
 .bought_item {
-  background: #bc6c25;
+  background: var(--clr-action-gradient);
 }
 .bought_item h3,
 .bought_item p {
@@ -91,7 +96,7 @@ body {
 }
 .history_text {
   margin: 100px 0 15px 0;
-  font-size: 28px;
+  font-size: 32px;
   color: var(--clr-secondary);
   font-weight: 900;
 }
@@ -103,11 +108,12 @@ body {
 }
 
 .sort_button select {
-  background-color: var(--clr-action);
+  background: var(--clr-action-gradient-btn);
   color: var(--clr-secondary);
   padding: 8px 10px;
   font-size: 18px;
   border-radius: 15px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
 }
 .sort_button select:hover {
   cursor: pointer;
@@ -150,13 +156,13 @@ body {
   border-radius: 10px;
   color: #555555;
   background-color: var(--clr-secondary);
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .search_button {
   font-size: 64px;
   color: var(--clr-secondary);
-  background-color: var(--clr-action);
+  background: var(--clr-action-gradient-btn);
   border: none;
   width: 58px;
   height: 58px;
@@ -164,7 +170,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: 8px 10px 25px -3px rgba(0, 0, 0, 0.1);
+
   transition: transform 0.2s;
 }
 .search_button:hover {
