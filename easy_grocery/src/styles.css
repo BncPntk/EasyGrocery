@@ -3,8 +3,8 @@
   --clr-primary-gradient: linear-gradient(120deg, rgba(143, 154, 107, 1) 38%, rgba(96, 108, 56, 1) 100%);
   --clr-secondary: #fefae0;
   --clr-secondary-gradient: linear-gradient(120deg, rgba(254, 250, 224, 1) 58%, rgba(212, 235, 136, 1) 100%);
+  --clr-tertiary: linear-gradient(120deg, rgba(108, 95, 91, 1) 38%, rgba(79, 74, 69, 1) 100%);
   --clr-action: #dda15e;
-  --clr-action-gradient: linear-gradient(120deg, rgba(221, 161, 94, 1) 58%, rgb(185, 124, 53) 100%);
   --clr-action-gradient-btn: linear-gradient(180deg, rgba(221, 161, 94, 1) 28%, rgb(185, 124, 53) 100%);
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 .bought_item {
-  background: var(--clr-action-gradient);
+  background: var(--clr-tertiary);
 }
 .bought_item h3,
 .bought_item p {
