@@ -1,0 +1,4 @@
+[build]
+  base = "easy_grocery/"
+  command = "npm run build"
+  publish = "build"
