@@ -1,19 +1,24 @@
 import '../styles.css';
+import '../modal.css';
 import BoughtItemsList from './BoughtItemsList';
 import ClearAll from './ClearAll';
 import ItemsList from './ItemsList';
 import Search from './Search';
 import SortButton from './SortButton';
+import Modal from './Modal';
 import { useState, useEffect } from 'react';
 
+const LOCAL_STORAGE_KEY = 'items';
+
 export default function App() {
-  const LOCAL_STORAGE_KEY = 'items';
   const [items, setItems] = useState([]);
+  const [showClearAllModal, setShowClearAllModal] = useState(false);
 
   function handleClearAll() {
     setItems([]);
     localStorage.removeItem(LOCAL_STORAGE_KEY);
     localStorage.removeItem('sortOrder');
+    setShowClearAllModal(false);
   }
 
   useEffect(() => {
@@ -38,11 +43,15 @@ export default function App() {
 
   return (
     <div className='container'>
-      <ClearAll onHandleClear={handleClearAll} />
-      <SortButton items={items} setItems={setItems}></SortButton>
+      {items.length >= 1 && (
+        <ClearAll onHandleClear={handleClearAll} onOpenModal={() => setShowClearAllModal(true)} />
+      )}
+      {items.length >= 1 && <SortButton items={items} setItems={setItems}></SortButton>}
+
       <ItemsList items={items} setItems={setItems} />
       <BoughtItemsList items={items} setItems={setItems} />
       <Search items={items} setItems={setItems}></Search>
+      {showClearAllModal && <Modal onCancel={setShowClearAllModal} onConfirm={handleClearAll} />}
     </div>
   );
 }
