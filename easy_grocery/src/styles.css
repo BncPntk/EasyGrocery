@@ -1,13 +1,10 @@
 :root {
-  --clr-primary: #606c38;
-  --clr-primary-gradient: linear-gradient(120deg, rgba(143, 154, 107, 1) 38%, rgba(96, 108, 56, 1) 100%);
-  --clr-secondary: #fefae0;
-  --clr-secondary-gradient: linear-gradient(120deg, rgba(254, 250, 224, 1) 58%, rgba(212, 235, 136, 1) 100%);
+  --clr-primary: #ebebeb;
+  --clr-secondary: linear-gradient(125deg, rgba(244, 206, 20, 1) 0%, rgba(255, 184, 0, 1) 100%);
   --clr-tertiary: linear-gradient(120deg, rgba(108, 95, 91, 1) 38%, rgba(79, 74, 69, 1) 100%);
-  --clr-action: #dda15e;
-  --clr-action-gradient-btn: linear-gradient(180deg, rgba(221, 161, 94, 1) 28%, rgb(185, 124, 53) 100%);
+  --clr-action: linear-gradient(180deg, rgba(244, 206, 20, 1) 0%, rgba(255, 184, 0, 1) 100%);
+  --clr-text-light: #fff;
 }
-
 *,
 ::after,
 ::before {
@@ -18,7 +15,7 @@
 
 body {
   font-family: 'Josefin Sans', sans-serif;
-  background: var(--clr-primary-gradient);
+  background: var(--clr-primary);
   height: 100vh;
 }
 
@@ -41,7 +38,8 @@ body {
 }
 
 .item {
-  background: var(--clr-secondary-gradient);
+  background: var(--clr-secondary);
+  color: var(--clr-text-light);
   width: 170px;
   height: 160px;
   border-radius: 10px;
@@ -108,15 +106,18 @@ body {
 }
 
 .sort_button select {
-  background: var(--clr-action-gradient-btn);
-  color: var(--clr-secondary);
+  background: var(--clr-action);
+  color: var(--clr-text-light);
   padding: 8px 10px;
   font-size: 18px;
   border-radius: 15px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  border: none;
+  transition: transform 0.2s;
 }
 .sort_button select:hover {
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 .sort_button option {
@@ -155,14 +156,13 @@ body {
   border: 2px solid var(--clr-primary);
   border-radius: 10px;
   color: #555555;
-  background-color: var(--clr-secondary);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .search_button {
   font-size: 64px;
-  color: var(--clr-secondary);
-  background: var(--clr-action-gradient-btn);
+  color: var(--clr-text-light);
+  background: var(--clr-action);
   border: none;
   width: 58px;
   height: 58px;
@@ -177,6 +177,30 @@ body {
 .search_button:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+
+.clear_button {
+  position: absolute;
+  right: 200px;
+  top: -20px;
+  transition: transform 0.2s;
+}
+
+.clear_button button {
+  background: var(--clr-action);
+  color: var(--clr-text-light);
+  border: none;
+  padding: 8px 15px;
+  font-size: 18px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.clear_button:hover {
+  transform: scale(1.05);
+}
+
+.clear_button button:hover {
+  cursor: pointer;
 }
 
 /* Responsive */
@@ -236,6 +260,10 @@ body {
 }
 
 @media (max-width: 486px) {
+  .clear_button {
+    left: 20px;
+  }
+
   .items_list,
   .bought_items_list {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -278,12 +306,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--clr-secondary);
+  background: #a1a1a1;
   border-radius: 10px;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--clr-secondary) #dda25e00;
+  scrollbar-color: #a1a1a1;
 }

@@ -1,5 +1,6 @@
 import '../styles.css';
 import BoughtItemsList from './BoughtItemsList';
+import ClearAll from './ClearAll';
 import ItemsList from './ItemsList';
 import Search from './Search';
 import SortButton from './SortButton';
@@ -8,6 +9,12 @@ import { useState, useEffect } from 'react';
 export default function App() {
   const LOCAL_STORAGE_KEY = 'items';
   const [items, setItems] = useState([]);
+
+  function handleClearAll() {
+    setItems([]);
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+    localStorage.removeItem('sortOrder');
+  }
 
   useEffect(() => {
     try {
@@ -22,6 +29,7 @@ export default function App() {
       setItems([]);
     }
   }, []);
+
   useEffect(() => {
     if (items?.length) {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
@@ -30,6 +38,7 @@ export default function App() {
 
   return (
     <div className='container'>
+      <ClearAll onHandleClear={handleClearAll} />
       <SortButton items={items} setItems={setItems}></SortButton>
       <ItemsList items={items} setItems={setItems} />
       <BoughtItemsList items={items} setItems={setItems} />
