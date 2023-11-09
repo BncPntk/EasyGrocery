@@ -43,11 +43,12 @@ export default function App() {
 
   return (
     <div className='container'>
-      {items.length >= 1 && (
-        <ClearAll onHandleClear={handleClearAll} onOpenModal={() => setShowClearAllModal(true)} />
-      )}
-      {items.length >= 1 && <SortButton items={items} setItems={setItems}></SortButton>}
-
+      <nav>
+        {items.length >= 1 && (
+          <ClearAll onHandleClear={handleClearAll} onOpenModal={() => setShowClearAllModal(true)} />
+        )}
+        {items.length >= 1 && <SortButton items={items} setItems={setItems}></SortButton>}
+      </nav>
       <ItemsList items={items} setItems={setItems} />
       <BoughtItemsList items={items} setItems={setItems} />
       <Search items={items} setItems={setItems}></Search>

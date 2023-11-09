@@ -26,6 +26,53 @@ body {
   height: auto;
   justify-content: center;
 }
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear_button {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.clear_button:hover {
+  transform: scale(1.05);
+}
+
+.clear_button button:hover {
+  cursor: pointer;
+}
+
+.sort_button {
+  display: inline-block;
+}
+
+.sort_button select {
+  transition: transform 0.2s;
+}
+.sort_button select:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.sort_button option {
+  color: #000000;
+  background-color: var(--clr-secondary);
+  padding: 5px 15px;
+  font-size: 18px;
+}
+
+.clear_button button,
+.sort_button select {
+  background: var(--clr-action);
+  color: var(--clr-text-light);
+  border: none;
+  padding: 8px 15px;
+  font-size: 18px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+}
 
 .items_list {
   display: grid;
@@ -99,34 +146,6 @@ body {
   font-weight: 900;
 }
 
-.sort_button {
-  position: absolute;
-  right: 0;
-  top: -20px;
-}
-
-.sort_button select {
-  background: var(--clr-action);
-  color: var(--clr-text-light);
-  padding: 8px 10px;
-  font-size: 18px;
-  border-radius: 15px;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
-  border: none;
-  transition: transform 0.2s;
-}
-.sort_button select:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-}
-
-.sort_button option {
-  color: #000000;
-  background-color: var(--clr-secondary);
-  padding: 5px 15px;
-  font-size: 18px;
-}
-
 .search_container {
   position: fixed;
   left: 50%;
@@ -176,30 +195,6 @@ body {
 .search_button:hover {
   cursor: pointer;
   transform: scale(1.05);
-}
-
-.clear_button {
-  position: absolute;
-  right: 200px;
-  top: -20px;
-  transition: transform 0.2s;
-}
-
-.clear_button button {
-  background: var(--clr-action);
-  color: var(--clr-text-light);
-  border: none;
-  padding: 8px 15px;
-  font-size: 18px;
-  border-radius: 15px;
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
-}
-.clear_button:hover {
-  transform: scale(1.05);
-}
-
-.clear_button button:hover {
-  cursor: pointer;
 }
 
 /* Responsive */
