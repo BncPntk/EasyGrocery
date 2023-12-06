@@ -66,7 +66,7 @@ export default function App() {
           selectedStore={selectedStore}
           setSelectedStore={setSelectedStore}
         />
-        {filteredItems.length >= 1 && <SortButton items={filteredItems} setItems={setItems}></SortButton>}
+        {filteredItems.length >= 1 && <SortButton items={items} setItems={setItems}></SortButton>}
       </nav>
       <ItemsList items={filteredItems} setItems={setItems} />
       <BoughtItemsList items={filteredItems} setItems={setItems} />

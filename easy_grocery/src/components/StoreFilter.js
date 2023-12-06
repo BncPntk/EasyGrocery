@@ -30,7 +30,11 @@ export default function StoreFilter({
   }
 
   function handleInputChange(e) {
-    setStore(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1).toLowerCase());
+    const inputValue = e.target.value.trim();
+    const firstNonWhitespaceChar = inputValue.charAt(0).toUpperCase();
+    const restOfInput = inputValue.slice(1).toLowerCase();
+
+    setStore(firstNonWhitespaceChar + restOfInput);
   }
 
   return (
