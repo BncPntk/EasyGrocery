@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-export default function Search({ items, setItems }) {
+export default function Search({ items, setItems, selectedStore }) {
   const [inputValue, setInputValue] = useState('');
 
   function handleAddItem() {
     const trimmedValue = inputValue.trim();
     if (trimmedValue === '') return;
 
-    const existingItem = items.find((item) => item.name === trimmedValue);
+    const existingItem = items.find((item) => item.name === trimmedValue && item.storeName === selectedStore);
 
     if (existingItem) {
       if (existingItem.checked) {
@@ -23,6 +23,7 @@ export default function Search({ items, setItems }) {
         id: Number(items.length + 1),
         name: trimmedValue,
         checked: false,
+        storeName: selectedStore,
       };
 
       setItems((prevItems) => [...prevItems, newItem]);

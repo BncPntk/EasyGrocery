@@ -25,10 +25,13 @@ body {
   width: 1465px;
   height: auto;
   justify-content: center;
+  padding-bottom: 50px;
 }
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 .clear_button {
@@ -63,12 +66,49 @@ nav {
   font-size: 18px;
 }
 
+.store_select {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: auto;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.store_select input {
+  width: 250px;
+  height: 45px;
+  box-shadow: none;
+  font-size: 22px;
+  padding: 0px 10px;
+}
+.store_select select {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  width: 180px !important;
+  border-radius: 8px !important;
+  margin: 0 auto;
+  transition: transform 0.2s;
+}
+
+.store_select select:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.store_select select > option {
+  text-transform: none;
+}
+
 .clear_button button,
-.sort_button select {
+.sort_button select,
+.store_select select {
   background: var(--clr-action);
   color: var(--clr-text-light);
   border: none;
   padding: 8px 15px;
+  width: 140px;
   font-size: 18px;
   border-radius: 15px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
@@ -130,6 +170,7 @@ nav {
   grid-column-gap: 15px;
   grid-row-gap: 15px;
   place-items: center;
+  margin-bottom: 50px;
 }
 
 .bought_item {
@@ -249,6 +290,36 @@ nav {
     font-size: 48px;
     width: 48px;
     height: 48px;
+  }
+
+  nav {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 150px 150px;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 0;
+  }
+  .store_select {
+    display: block;
+    order: 1;
+    grid-column: 1/3;
+  }
+  .store_select select {
+    margin-bottom: 8px;
+  }
+  .clear_button {
+    display: flex;
+    justify-content: flex-start;
+    order: 2;
+    grid-row: 2 / 3;
+  }
+  .sort_button {
+    display: flex;
+    justify-content: flex-end;
+    order: 3;
+    grid-row: 2 / 3;
   }
 }
 
