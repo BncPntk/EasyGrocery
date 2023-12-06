@@ -33,6 +33,8 @@ EasyGrocery is a user-friendly React-based shopping list app designed to simplif
 * Sort items in ascending order or the order they were added
 * Save items and settings to local storage      
 * Clear all items
+* Users can add and select stores
+* Items can be filtered based on the selected store
       
        
        
