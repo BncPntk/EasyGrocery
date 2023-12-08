@@ -11,7 +11,7 @@ export default React.forwardRef(function Search({ items, setItems, selectedStore
   );
 
   function handleAddItem() {
-    const trimmedValue = inputValue.trim();
+    const trimmedValue = inputValue.trim().toLowerCase();
     if (trimmedValue === '') return;
 
     const existingItem = items.find((item) => item.name === trimmedValue && item.storeName === selectedStore);
