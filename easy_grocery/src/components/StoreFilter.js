@@ -5,6 +5,7 @@ export default function StoreFilter({
   setStoreNames,
   selectedStore,
   setSelectedStore,
+  onStoreAdded,
 }) {
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -23,6 +24,9 @@ export default function StoreFilter({
     });
     setStore('');
     setSelectedStore(store);
+    if (onStoreAdded && typeof onStoreAdded === 'function') {
+      onStoreAdded();
+    }
   }
 
   function handleSelectChange(e) {

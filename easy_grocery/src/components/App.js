@@ -7,7 +7,7 @@ import Search from './Search';
 import SortButton from './SortButton';
 import Modal from './Modal';
 import StoreFilter from './StoreFilter';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const LOCAL_STORAGE_ITEMS = 'items';
 const LOCAL_STORAGE_SORT_ORDERY = 'sortOrder';
@@ -20,17 +20,10 @@ export default function App() {
   const [storeNames, setStoreNames] = useState(['General']);
   const [selectedStore, setSelectedStore] = useState('General');
 
+  const searchRef = useRef(null);
+
   const filteredItems =
     selectedStore === 'General' ? items : items.filter((item) => item.storeName === selectedStore);
-
-  function handleClearAll() {
-    setItems([]);
-    setStoreNames(['General']);
-    localStorage.removeItem(LOCAL_STORAGE_ITEMS);
-    localStorage.removeItem(LOCAL_STORAGE_SORT_ORDERY);
-    localStorage.removeItem(LOCAL_STORAGE_STORE_NAMES);
-    setShowClearAllModal(false);
-  }
 
   useEffect(() => {
     try {
@@ -52,6 +45,21 @@ export default function App() {
     }
   }, [items]);
 
+  function handleClearAll() {
+    setItems([]);
+    setStoreNames(['General']);
+    localStorage.removeItem(LOCAL_STORAGE_ITEMS);
+    localStorage.removeItem(LOCAL_STORAGE_SORT_ORDERY);
+    localStorage.removeItem(LOCAL_STORAGE_STORE_NAMES);
+    setShowClearAllModal(false);
+  }
+
+  function handleStoreAdded() {
+    if (searchRef.current) {
+      searchRef.current.focus();
+    }
+  }
+
   return (
     <div className='container'>
       <nav>
@@ -65,12 +73,13 @@ export default function App() {
           setStoreNames={setStoreNames}
           selectedStore={selectedStore}
           setSelectedStore={setSelectedStore}
+          onStoreAdded={handleStoreAdded}
         />
         {filteredItems.length >= 1 && <SortButton items={items} setItems={setItems}></SortButton>}
       </nav>
       <ItemsList items={filteredItems} setItems={setItems} />
       <BoughtItemsList items={filteredItems} setItems={setItems} />
-      <Search items={items} setItems={setItems} selectedStore={selectedStore}></Search>
+      <Search items={items} setItems={setItems} selectedStore={selectedStore} ref={searchRef}></Search>
       {showClearAllModal && <Modal onCancel={setShowClearAllModal} onConfirm={handleClearAll} />}
     </div>
   );

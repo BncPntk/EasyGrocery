@@ -1,7 +1,14 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function Search({ items, setItems, selectedStore }) {
+export default React.forwardRef(function Search({ items, setItems, selectedStore }, ref) {
   const [inputValue, setInputValue] = useState('');
+
+  useEffect(
+    function () {
+      ref.current.focus();
+    },
+    [ref]
+  );
 
   function handleAddItem() {
     const trimmedValue = inputValue.trim();
@@ -51,10 +58,11 @@ export default function Search({ items, setItems, selectedStore }) {
           type='text'
           placeholder='I need...'
           value={inputValue}
+          ref={ref}
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button className='search_button'>+</button>
       </form>
     </div>
   );
-}
+});
